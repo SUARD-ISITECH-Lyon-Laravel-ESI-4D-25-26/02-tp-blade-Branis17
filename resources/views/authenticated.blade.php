@@ -10,9 +10,12 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
                     {{-- TÂCHE : ajoutez une condition pour afficher le texte approprié --}}
-                    {{-- Si l'utilisateur est connecté, affichez son email --}}
-                    Yes, I am logged in as [insert_user_email_here].
-                    No, I am not logged in.
+                    {{-- Si l'utilisateur est connecté, affichez son email --}}    
+                    @if (Auth::check())
+                        Yes, I am logged in as {{ Auth::user()->email }}.
+                    @else
+                        No, I am not logged in.
+                    @endif
                 </div>
             </div>
         </div>
